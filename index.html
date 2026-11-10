@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#101619" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%94%3C/text%3E%3C/svg%3E" />
+  <title>IRON OATH — Knight's Trial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <div id="scene"></div>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Iron Oath home"><span class="brand-mark">✦</span><span>IRON <b>OATH</b></span></a>
+      <div class="match-info"><span class="eyebrow">THE ASHEN CITADEL</span><span class="match-title">KNIGHT'S TRIAL <i>•</i> ROUND <b id="round-number">01</b></span></div>
+      <button class="icon-button" id="pause-button" aria-label="Pause game"><span class="pause-icon">Ⅱ</span></button>
+    </header>
+    <section class="combat-hud" aria-label="Combat status">
+      <div class="fighter-card player-card">
+        <div class="fighter-heading"><span class="fighter-name">SIR ALDRIC</span><span class="fighter-tag">THE OATHBOUND</span></div>
+        <div class="meter health-meter"><div class="meter-fill" id="player-health"></div><span class="meter-label">VITALITY</span></div>
+        <div class="meter stamina-meter"><div class="meter-fill" id="player-stamina"></div><span class="meter-label">STAMINA</span></div>
+      </div>
+      <div class="vs-mark"><span>VS</span><small>⚔</small></div>
+      <div class="fighter-card enemy-card">
+        <div class="fighter-heading"><span class="fighter-name">THE WARDEN</span><span class="fighter-tag">CITADEL CHAMPION</span></div>
+        <div class="meter health-meter"><div class="meter-fill enemy-fill" id="enemy-health"></div><span class="meter-label">VITALITY</span></div>
+        <div class="meter stamina-meter enemy-stamina"><div class="meter-fill" id="enemy-stamina"></div><span class="meter-label">GUARD</span></div>
+      </div>
+    </section>
+    <div class="round-toast" id="round-toast"><span class="toast-kicker">A CHALLENGER APPROACHES</span><strong>STEEL YOURSELF</strong></div>
+    <div class="combat-callout" id="combat-callout" aria-live="polite"></div>
+    <div class="bottom-bar">
+      <div class="battle-tip"><span class="tip-glyph">✧</span><span id="tip-text">Time your guard. Punish the opening.</span></div>
+      <div class="desktop-controls"><kbd>WASD</kbd> MOVE <i>·</i> <kbd>J</kbd> STRIKE <i>·</i> <kbd>K</kbd> GUARD <i>·</i> <kbd>SPACE</kbd> DODGE</div>
+    </div>
+    <div class="mobile-controls" id="mobile-controls">
+      <div class="move-pad" aria-label="Movement controls">
+        <button class="move-btn move-up" data-key="up" aria-label="Move forward">▲</button>
+        <button class="move-btn move-left" data-key="left" aria-label="Move left">◀</button>
+        <button class="move-btn move-down" data-key="down" aria-label="Move backward">▼</button>
+        <button class="move-btn move-right" data-key="right" aria-label="Move right">▶</button>
+        <span class="pad-center">MOVE</span>
+      </div>
+      <div class="action-pad">
+        <button class="action-btn dodge-btn" data-action="dodge"><span>↗</span><small>DODGE</small></button>
+        <button class="action-btn guard-btn" data-action="guard"><span>◈</span><small>GUARD</small></button>
+        <button class="action-btn attack-btn" data-action="attack"><span>⚔</span><small>STRIKE</small></button>
+      </div>
+    </div>
+    <div class="screen-cover" id="screen-cover">
+      <div class="cover-card">
+        <div class="cover-emblem">⚔</div>
+        <p class="eyebrow" id="cover-kicker">A TRIAL BY STEEL</p>
+        <h1 id="cover-title">EARN YOUR<br><em>IRON OATH.</em></h1>
+        <p class="cover-copy" id="cover-copy">Face the Warden in the Ashen Citadel. Read his stance, break his guard, and claim the arena.</p>
+        <button class="primary-button" id="start-button"><span>ENTER THE ARENA</span><b>↗</b></button>
+        <div class="cover-foot"><span>⚔</span> A DUEL OF HONOR <i>·</i> NO MERCY <span>⚔</span></div>
+      </div>
+    </div>
+    <div class="mobile-hint" id="mobile-hint">MOVE <b>◉</b> · STRIKE <b>⚔</b> · GUARD <b>◈</b></div>
+  </main>
+  <script type="importmap">
+    {"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}
+  </script>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
